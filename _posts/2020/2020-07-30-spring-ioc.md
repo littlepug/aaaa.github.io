@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Spring——IOC（控制反转）
-category: life
-tags: [life]
+title: Spring—IOC（控制反转）
+category: study
+tags: [study]
 keywords: spring5
 excerpt: Spring5学习
 ---

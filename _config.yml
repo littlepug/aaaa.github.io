@@ -128,19 +128,14 @@ labels:
 classes:
 
   -
-    href: /cartoon.html
-    name: 不会笑青年
-    describe: 内心沉稳 ，放荡不羁。
-
-  -
     href: /life.html
     name: 我的故事
     describe: 生活就是故事，故事就是生活
 
   -
-    href: /it.html
-    name: IT行业深度报道
-    describe: IT大佬，互联网知名公司的故事
+    href: /study.html
+    name: 知识积累
+    describe: 要相信一万个小时定律，温故知新
 
 
 
