@@ -56,36 +56,6 @@ paginate_path: 'page:num'
 menus:
 
   -
-    href: /stock.html
-    label: 股票
-    target: _blank  
-
-  -
-    href: /money.html
-    label: 挣钱
-    target: _self   
-
-  -
-    href: /it.html
-    label: 深度
-    target: _self
-
-  -
-    href: /life.html
-    label: 故事
-    target: _self
-
-  -
-    href: /arch.html
-    label: 架构
-    target: _self
-
-  -
-    href: /link.html
-    label: 友链
-    target: _self
-
-  -
     href: /about.html
     label: 关于
     target: _self
@@ -96,11 +66,6 @@ navs:
   -
     href: /
     label: Home
-
-  -
-    href: /cartoon.html
-    label: Cartoon
-    target: _self
 
   -
     href: /spring-boot.html
@@ -116,35 +81,7 @@ navs:
         subHref: /spring-cloud.html
         subLabel: Spring Cloud
 
-  -
-    href: http://www.justdojava.com
-    label: Java
-    target: _blank
-    subnav:
 
-      -
-        subHref: /java.html
-        subLabel: Jvm 系列文章
-        
-      -
-        subHref: http://www.justdojava.com
-        subLabel: Java 极客技术
-        target: _blank
-
-  -
-    
-    href: /python.html
-    label: Python
-    subnav:
-
-      -
-        subHref: /python.html
-        subLabel: Python 教程
-        
-      -
-        subHref: http://www.justdopython.com
-        subLabel: Python 技术
-        target: _blank
 
   -
     href: /archives.html
