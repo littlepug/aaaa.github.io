@@ -1,11 +1,18 @@
----
-layout: post
-title: Spring-AOP基本概念 
-category: study
-tags: [study]
-keywords: spring5
-excerpt: Spring5学习
----
+--- 
+
+layout: post 
+
+title: Spring-AOP概念及使用教程 
+
+category: life 
+
+tags: [life] 
+
+keywords: spring5 
+
+excerpt: Spring5学习 
+
+--- 
 
 # 1.Spring-AOP基本概念 
 
@@ -33,6 +40,10 @@ a）AOP 底层使用动态代理 ，动态代理有两种情况：
 1）使用 JDK 动态代理，使用 Proxy 类里面的方法创建代理对象 
 
 >调用 newProxyInstance 方法，方法有三个参数： 
+
+---
+
+
 ```java
 public static Object newProxyInstance(ClassLoader loader, 
                                                                                                Class<?>[] interfaces, 
@@ -41,6 +52,9 @@ public static Object newProxyInstance(ClassLoader loader,
 >第一参数，类加载器 
 >第二参数，增强方法所在的类，这个类实现的接口，支持多个接口 
 >第三参数，实现这个接口 InvocationHandler，创建代理对象，写增强的部分 
+
+---
+
 
 ​ 2）编写 JDK 动态代理代码 
 
