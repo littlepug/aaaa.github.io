@@ -1,17 +1,10 @@
 --- 
-
 layout: post 
-
 title: Spring—IOC（控制反转） 
-
-category: life 
-
-tags: [life] 
-
+category: study 
+tags: [study] 
 keywords: spring5 
-
 excerpt: Spring5学习 
-
 --- 
 
 # 一、IOC容器
@@ -59,12 +52,12 @@ new FileSystemXmlApplicationContext()
 ```java
 //（1）传统方式： 创建类，定义属性和对应的set方法 
 public class Book {
-    //创建属性 
-    private String bname; 
-    //创建属性对应的set方法 
-    public void setBname(String bname) { 
-        this.bname = bname; 
-        } 
+        //创建属性 
+        private String bname; 
+        //创建属性对应的set方法 
+        public void setBname(String bname) { 
+                this.bname = bname; 
+                } 
 } 
 ```
 

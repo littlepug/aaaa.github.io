@@ -1,17 +1,10 @@
 --- 
-
 layout: post 
-
 title: Spring-AOP概念及使用教程 
-
-category: life 
-
-tags: [life] 
-
+category: study 
+tags: [study] 
 keywords: spring5 
-
 excerpt: Spring5学习 
-
 --- 
 
 # 1.Spring-AOP基本概念 
