@@ -14,7 +14,7 @@ excerpt: Spring5学习
 2. 通俗描述：不通过修改源代码，在主干功能里面添加新功能 
 3. 使用登录例子说明AOP 
 
-![图片](..\..\assets\images\2020\spring5\lizishuoming.png)
+![图片](/assets/images/2020/spring5/lizishuoming.png)
 
 # 2.AOP（底层原里） 
 
@@ -22,11 +22,11 @@ a）AOP 底层使用动态代理 ，动态代理有两种情况：
 
 >第一种有接口情况，使用JDK动态代理；创建接口实现代理对象，增强类的方法 
 
-![图片](https://uploader.shimo.im/f/1b0Tkav7nKGb2HwX.png!thumbnail)
+![图片](/assets/images/2020/spring5/youjiekou.png)
 
 >第二种 没有接口情况，使用  CGLIB 动态代理；创建子类的代理对象，增强类的方法 
 
-![图片](https://uploader.shimo.im/f/9jxqnZr8IN7pGDnq.png!thumbnail)
+![图片](/assets/images/2020/spring5/wujiekou.png)
 
 # 3.AOP（JDK动态代理） 
 
