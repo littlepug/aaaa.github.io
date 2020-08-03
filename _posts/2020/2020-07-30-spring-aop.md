@@ -14,7 +14,7 @@ excerpt: Spring5学习
 2. 通俗描述：不通过修改源代码，在主干功能里面添加新功能 
 3. 使用登录例子说明AOP 
 
-![图片](https://uploader.shimo.im/f/W2A37Ptkib9kwHaR.png!thumbnail)
+![图片](..\..\assets\images\2020\spring5\lizishuoming.png)
 
 # 2.AOP（底层原里） 
 
