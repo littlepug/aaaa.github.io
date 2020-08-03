@@ -38,9 +38,9 @@ a）AOP 底层使用动态代理 ，动态代理有两种情况：
 
 
 ```java
-public static Object newProxyInstance(ClassLoader loader, 
-                                                                                               Class<?>[] interfaces, 
-                                                                                               InvocationHandler h) 
+public static Object newProxyInstance(ClassLoader loader,
+Class<?>[] interfaces,
+InvocationHandler h) 
 ```
 >第一参数，类加载器 
 >第二参数，增强方法所在的类，这个类实现的接口，支持多个接口 
@@ -167,13 +167,13 @@ public class UserProxy {
 <!--3、进行通知的配置--> 
 <?xml version="1.0" encoding="UTF-8"?> 
 <beans xmlns="http://www.springframework.org/schema/beans" 
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-                   xmlns:context="http://www.springframework.org/schema/context" 
-                   xmlns:aop="http://www.springframework.org/schema/aop" 
-                   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
-                                                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd 
-                                                            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"> 
-          <!-- 开启注解扫描 --> 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xmlns:context="http://www.springframework.org/schema/context" 
+        xmlns:aop="http://www.springframework.org/schema/aop" 
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+           <!-- 开启注解扫描 --> 
           <context:component-scan base-package="com.atguigu.spring5.aopanno"></context:component-scan> 
 
           <!-- 开启Aspect生成代理对象--> 
@@ -203,47 +203,47 @@ public class User {}
 @Component 
 @Aspect     //生成代理对象 
 public class UserProxy { 
-               //相同切入点抽取 
-          @Pointcut(value = "execution(* com.atguigu.spring5.aopanno.User.add(..))") 
-          public void pointdemo() { 
+    //相同切入点抽取 
+    @Pointcut(value = "execution(* com.atguigu.spring5.aopanno.User.add(..))") 
+    public void pointdemo() { 
 
-          } 
+    } 
 
-          //前置通知 
-          //@Before注解表示作为前置通知 
-          @Before(value = "pointdemo()")//相同切入点抽取使用！ 
-          public void before() { 
-                    System.out.println("before........."); 
-          } 
+    //前置通知 
+    //@Before注解表示作为前置通知 
+    @Before(value = "pointdemo()")//相同切入点抽取使用！ 
+    public void before() { 
+            System.out.println("before........."); 
+    } 
 
-          //后置通知（返回通知） 
-          @AfterReturning(value = "execution(* com.atguigu.spring5.aopanno.User.add(..))") 
-          public void afterReturning() { 
-                    System.out.println("afterReturning........."); 
-          } 
+    //后置通知（返回通知） 
+    @AfterReturning(value = "execution(* com.atguigu.spring5.aopanno.User.add(..))") 
+    public void afterReturning() { 
+            System.out.println("afterReturning........."); 
+    } 
 
-          //最终通知 
-          @After(value = "execution(* com.atguigu.spring5.aopanno.User.add(..))") 
-          public void after() { 
-                    System.out.println("after........."); 
-          } 
+    //最终通知 
+    @After(value = "execution(* com.atguigu.spring5.aopanno.User.add(..))") 
+    public void after() { 
+            System.out.println("after........."); 
+    } 
 
-          //异常通知 
-          @AfterThrowing(value = "execution(* com.atguigu.spring5.aopanno.User.add(..))") 
-          public void afterThrowing() { 
-                    System.out.println("afterThrowing........."); 
-          } 
+    //异常通知 
+    @AfterThrowing(value = "execution(* com.atguigu.spring5.aopanno.User.add(..))") 
+    public void afterThrowing() { 
+            System.out.println("afterThrowing........."); 
+    } 
 
-          //环绕通知 
-          @Around(value = "execution(* com.atguigu.spring5.aopanno.User.add(..))") 
-          public void around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable { 
-                    System.out.println("环绕之前........."); 
+    //环绕通知 
+    @Around(value = "execution(* com.atguigu.spring5.aopanno.User.add(..))") 
+    public void around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable { 
+            System.out.println("环绕之前........."); 
 
-                    //被增强的方法执行 
-                    proceedingJoinPoint.proceed(); 
+            //被增强的方法执行 
+            proceedingJoinPoint.proceed(); 
 
-                    System.out.println("环绕之后........."); 
-          } 
+            System.out.println("环绕之后........."); 
+    } 
 } 
 ```
 
