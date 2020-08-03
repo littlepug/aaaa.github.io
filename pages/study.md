@@ -1,8 +1,8 @@
 ---
 layout: page
-title: 读有意思的书，过有意思的活
+title: 读有意思的书，过有意思的生活
 titlebar: study
-subtitle: <span class="mega-octicon octicon-organization"></span>&nbsp;&nbsp; 读有意思的书，过有意思的活
+subtitle: <span class="mega-octicon octicon-organization"></span>&nbsp;&nbsp; 你看过哪些有意思的书？
 menu: study
 css: ['blog-page.css']
 permalink: /study
