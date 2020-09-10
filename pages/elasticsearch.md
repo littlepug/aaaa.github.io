@@ -1,7 +1,7 @@
 ---
 layout: page
 title: ES系列文章
-titlebar: Elasticsearch
+titlebar: elasticsearch
 subtitle: <span class="mega-octicon octicon-clippy"></span>&nbsp;&nbsp; Elasticsearch系列文章
 menu: elasticsearch
 css: ['blog-page.css']
