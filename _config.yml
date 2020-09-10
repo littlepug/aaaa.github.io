@@ -100,7 +100,7 @@ labels:
 
   -
     href: /elasticsearch.html
-    label: elasticsearch
+    label: Elasticsearch
     target: _self
 
   -
