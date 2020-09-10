@@ -99,6 +99,11 @@ labels:
     target: _self
 
   -
+    href: /elasticsearch.html
+    label: Elasticsearch
+    target: _self
+
+  -
     href: /fastdfs.html
     label: FastDFS
     target: _blank
