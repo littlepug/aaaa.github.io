@@ -14,7 +14,7 @@ permalink: /elasticsearch
 
         <ul id="posts-list">
             {% for post in site.posts %}
-                {% if post.category=='payment'  or post.keywords contains '支付' %}
+                {% if post.category=='elasticsearch'  or post.keywords contains 'Elasticsearch' %}
                 <li class="posts-list-item">
                     <div class="posts-content">
                         <span class="posts-list-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
