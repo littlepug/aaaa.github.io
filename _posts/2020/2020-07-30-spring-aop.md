@@ -10,9 +10,11 @@ excerpt: Spring5学习
 # 1.Spring-AOP基本概念 
 
 
-1. 面向切面编程（方面），利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑之间的耦合度江都，提高程序的可重用性同事提高了开发的效率。 
-2. 通俗描述：不通过修改源代码，在主干功能里面添加新功能 
-3. 使用登录例子说明AOP 
+>  1. 面向切面编程（方面），利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑之间的耦合度江都，提高程序的可重用性同事提高了开发的效率。 
+
+>  2. 通俗描述：不通过修改源代码，在主干功能里面添加新功能 
+
+>  3. 使用登录例子说明AOP 
 
 ![图片](/assets/images/2020/spring5/lizishuoming.png)
 
@@ -20,11 +22,11 @@ excerpt: Spring5学习
 
 a）AOP 底层使用动态代理 ，动态代理有两种情况： 
 
->第一种有接口情况，使用JDK动态代理；创建接口实现代理对象，增强类的方法 
+>  第一种有接口情况，使用JDK动态代理；创建接口实现代理对象，增强类的方法 
 
 ![图片](/assets/images/2020/spring5/youjiekou.png)
 
->第二种 没有接口情况，使用  CGLIB 动态代理；创建子类的代理对象，增强类的方法 
+>  第二种 没有接口情况，使用  CGLIB 动态代理；创建子类的代理对象，增强类的方法 
 
 ![图片](/assets/images/2020/spring5/wujiekou.png)
 
@@ -32,19 +34,20 @@ a）AOP 底层使用动态代理 ，动态代理有两种情况：
 
 1）使用 JDK 动态代理，使用 Proxy 类里面的方法创建代理对象 
 
->调用 newProxyInstance 方法，方法有三个参数： 
+> 调用 newProxyInstance 方法，方法有三个参数： 
 
 ---
 
 
 ```java
 public static Object newProxyInstance(ClassLoader loader,
-Class<?>[] interfaces,
+Class<?> [] interfaces,
 InvocationHandler h) 
 ```
->第一参数，类加载器 
->第二参数，增强方法所在的类，这个类实现的接口，支持多个接口 
->第三参数，实现这个接口 InvocationHandler，创建代理对象，写增强的部分 
+
+> 第一参数，类加载器 
+> 第二参数，增强方法所在的类，这个类实现的接口，支持多个接口 
+> 第三参数，实现这个接口 InvocationHandler，创建代理对象，写增强的部分 
 
 ---
 
@@ -116,21 +119,29 @@ class UserDaoProxy implements InvocationHandler {
     } 
 } 
 ```
+
 # 4.AOP（术语） 
 
 
-1. 连接点：类里面哪些方法可以被增强、这些方法被称为连接点 
-2. 切入点：实际被真正增强的方法称为切入点 
-3. 增强： 就是植入到目标类连接点上的一段程序代码，包括：前置增强；后置增强；环绕增强；异常增强；最终增强 
-4. 切面：把通知应用到切入点uoch 
+> 1. 连接点：类里面哪些方法可以被增强、这些方法被称为连接点 
+
+> 2. 切入点：实际被真正增强的方法称为切入点 
+
+> 3. 增强： 就是植入到目标类连接点上的一段程序代码，包括：前置增强；后置增强；环绕增强；异常增强；最终增强 
+> 4. 切面：把通知应用到切入点uoch 
+
 # 5.AOP操作 
 
 
-1. Spring框架一般都是基于AspectJ实现AOP操作，AspectJ不是Spring组成部分，独立AOP框架，一般把AspectJ和Spring框架一起使用，进行AOP操作 
-2. 基于AspectJ和Spring框架一起使用，进行AOP操作：1）基于xml配置文件实现；2）基于注解方式实现（使用） 
-3. 引入相关jar包 
-4. 切入点表达式，如下 
-```java
+> 1. Spring框架一般都是基于AspectJ实现AOP操作，AspectJ不是Spring组成部分，独立AOP框架，一般把AspectJ和Spring框架一起使用，进行AOP操作 
+
+> 2. 基于AspectJ和Spring框架一起使用，进行AOP操作：1）基于xml配置文件实现；2）基于注解方式实现（使用） 
+
+> 3. 引入相关jar包 
+
+> 4. 切入点表达式，如下 
+
+```text
 （1）切入点表达式作用：知道对哪个类里面的哪个方法进行增强     
 （2）语法结构： execution([权限修饰符] [返回类型] [类全路径] [方法名称]([参数列表]) ) 
 （3）例子如下： 
@@ -141,6 +152,7 @@ class UserDaoProxy implements InvocationHandler {
           例 3：对 com.atguigu.dao 包里面所有类，类里面所有方法进行增强 
 		execution(* com.atguigu.dao.*.* (..)) 
 ```
+
 # 6.AOP操作（Aspectj注解） 
 
 ```java
@@ -164,21 +176,21 @@ public class UserProxy {
 
 
 ```xml
-<!--3、进行通知的配置--> 
-<?xml version="1.0" encoding="UTF-8"?> 
+<!--3、进行通知的配置-->  
+<?xml version="1.0" encoding="UTF-8"?>  
 <beans xmlns="http://www.springframework.org/schema/beans" 
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
         xmlns:context="http://www.springframework.org/schema/context" 
         xmlns:aop="http://www.springframework.org/schema/aop" 
         xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-                        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
-           <!-- 开启注解扫描 --> 
-          <context:component-scan base-package="com.atguigu.spring5.aopanno"></context:component-scan> 
+                        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"> 
+           <!-- 开启注解扫描 -->  
+          <context:component-scan base-package="com.atguigu.spring5.aopanno"> </context:component-scan>  
 
-          <!-- 开启Aspect生成代理对象--> 
-          <aop:aspectj-autoproxy></aop:aspectj-autoproxy> 
-</beans> 
+          <!-- 开启Aspect生成代理对象-->  
+          <aop:aspectj-autoproxy> </aop:aspectj-autoproxy>  
+</beans>  
 ```
 
 ---
@@ -247,7 +259,8 @@ public class UserProxy {
 } 
 ```
 
-1. 有多个增强类对同一个方法进行增强，设置增强类优先级 
+> 1. 有多个增强类对同一个方法进行增强，设置增强类优先级 
+
 ```java
 //（1）在增强类上面添加注解 @Order(数字类型值)，数字类型值越小优先级越高 
 @Component 
@@ -255,23 +268,24 @@ public class UserProxy {
 @Order(1) 
 public class PersonProxy{ } 
 ```
+
 # 8.AOP 操作（AspectJ 配置文件） 
 
 ```xml
-<!--1、创建两个类，增强类和被增强类，创建方法（同上一样）--> 
-<!--2、在 spring 配置文件中创建两个类对象--> 
-<!--创建对象--> 
-<bean id="book" class="com.atguigu.spring5.aopxml.Book"></bean> 
-<bean id="bookProxy" class="com.atguigu.spring5.aopxml.BookProxy"></bean> 
-<!--3、在 spring 配置文件中配置切入点--> 
-<!--配置 aop 增强--> 
-<aop:config> 
-    <!--切入点--> 
-    <aop:pointcut id="p" expression="execution(* com.atguigu.spring5.aopxml.Book.buy(..))"/> 
-    <!--配置切面--> 
-    <aop:aspect ref="bookProxy"> 
-    <!--增强作用在具体的方法上--> 
-    <aop:before method="before" pointcut-ref="p"/> 
-    </aop:aspect> 
-</aop:config> 
+<!--1、创建两个类，增强类和被增强类，创建方法（同上一样）-->  
+<!--2、在 spring 配置文件中创建两个类对象-->  
+<!--创建对象-->  
+<bean id="book" class="com.atguigu.spring5.aopxml.Book"> </bean>  
+<bean id="bookProxy" class="com.atguigu.spring5.aopxml.BookProxy"> </bean>  
+<!--3、在 spring 配置文件中配置切入点-->  
+<!--配置 aop 增强-->  
+<aop:config>  
+    <!--切入点-->  
+    <aop:pointcut id="p" expression="execution(* com.atguigu.spring5.aopxml.Book.buy(..))"/>  
+    <!--配置切面-->  
+    <aop:aspect ref="bookProxy">  
+    <!--增强作用在具体的方法上-->  
+    <aop:before method="before" pointcut-ref="p"/>  
+    </aop:aspect>  
+</aop:config>  
 ```
