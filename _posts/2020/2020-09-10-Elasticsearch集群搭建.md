@@ -7,7 +7,7 @@ keywords: elasticsearch
 excerpt: Elasticsearch集群搭建Kibana安装 
 --- 
 
-## Elasticsearch集群搭建Kibana安装 
+## Elasticsearch集群搭建
 ### 一、环境要求
 > centos 7 64位
 
