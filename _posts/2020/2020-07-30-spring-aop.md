@@ -7,7 +7,7 @@ keywords: spring5
 excerpt: Spring5学习 
 --- 
 
-# 1.Spring-AOP基本概念 
+## 1.Spring-AOP基本概念 
 
 
 >  1. 面向切面编程（方面），利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑之间的耦合度江都，提高程序的可重用性同事提高了开发的效率。 
@@ -18,9 +18,9 @@ excerpt: Spring5学习
 
 ![图片](/assets/images/2020/spring5/lizishuoming.png)
 
-# 2.AOP（底层原里） 
+## 2.AOP（底层原里） 
 
-## a）AOP 底层使用动态代理 ，动态代理有两种情况： 
+### a）AOP 底层使用动态代理 ，动态代理有两种情况： 
 
 >  第一种有接口情况，使用JDK动态代理；创建接口实现代理对象，增强类的方法 
 
@@ -30,9 +30,9 @@ excerpt: Spring5学习
 
 ![图片](/assets/images/2020/spring5/wujiekou.png)
 
-# 3.AOP（JDK动态代理） 
+## 3.AOP（JDK动态代理） 
 
-## 1）使用 JDK 动态代理，使用 Proxy 类里面的方法创建代理对象 
+### 1）使用 JDK 动态代理，使用 Proxy 类里面的方法创建代理对象 
 
 > 调用 newProxyInstance 方法，方法有三个参数： 
 
@@ -52,7 +52,7 @@ InvocationHandler h)
 ---
 
 
-​ ## 2）编写 JDK 动态代理代码 
+​ ### 2）编写 JDK 动态代理代码 
 
 ```java
 //（1）创建接口，定义方法 
@@ -120,7 +120,7 @@ class UserDaoProxy implements InvocationHandler {
 } 
 ```
 
-# 4.AOP（术语） 
+## 4.AOP（术语） 
 
 
 > 1. 连接点：类里面哪些方法可以被增强、这些方法被称为连接点 
@@ -130,7 +130,7 @@ class UserDaoProxy implements InvocationHandler {
 > 3. 增强： 就是植入到目标类连接点上的一段程序代码，包括：前置增强；后置增强；环绕增强；异常增强；最终增强 
 > 4. 切面：把通知应用到切入点uoch 
 
-# 5.AOP操作 
+## 5.AOP操作 
 
 
 > 1. Spring框架一般都是基于AspectJ实现AOP操作，AspectJ不是Spring组成部分，独立AOP框架，一般把AspectJ和Spring框架一起使用，进行AOP操作 
@@ -153,7 +153,7 @@ class UserDaoProxy implements InvocationHandler {
 		execution(* com.atguigu.dao.*.* (..)) 
 ```
 
-# 6.AOP操作（Aspectj注解） 
+## 6.AOP操作（Aspectj注解） 
 
 ```java
 //1、创建类，在类里面定义方法 
@@ -259,7 +259,7 @@ public class UserProxy {
 } 
 ```
 
-## > 1. 有多个增强类对同一个方法进行增强，设置增强类优先级 
+### > 1. 有多个增强类对同一个方法进行增强，设置增强类优先级 
 
 ```java
 //（1）在增强类上面添加注解 @Order(数字类型值)，数字类型值越小优先级越高 
@@ -269,7 +269,7 @@ public class UserProxy {
 public class PersonProxy{ } 
 ```
 
-# 8.AOP 操作（AspectJ 配置文件） 
+## 8.AOP 操作（AspectJ 配置文件） 
 
 ```xml
 <!--1、创建两个类，增强类和被增强类，创建方法（同上一样）-->  

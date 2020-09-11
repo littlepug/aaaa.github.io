@@ -7,47 +7,47 @@ keywords: spring5
 excerpt: Spring5学习 
 --- 
 
-# 一、IOC容器
+## 一、IOC容器
 
-## 1.什么是IOC(控制反转)
+### 1.什么是IOC(控制反转)
 
 a）把对象和对象之间的调用国产，交给spring进行管理 
 
 b）使用IOC目的：为了降低耦合度 
 
-## 2.IOC底层
+### 2.IOC底层
 
 a）xml解析、工厂模式、反射 
 
-## 3.Spring提供的IOC容器实现的两种方式（两个接口）
+### 3.Spring提供的IOC容器实现的两种方式（两个接口）
 
 a） BeanFactory接口：基本上spring内部接口使用的接口，不提供给开发人员使用（加载配置文件时候不会创建对象，再获取对象时才会创建对象） 
 
 b）ApplicationContext接口：BeanFactory接口的子接口，提供更多更强大的功能，提供给开发人员使用（加载配置文件时就会把配置文件对象进行创建） 
 
-## 4.ApplicationContext接口的实现类
+### 4.ApplicationContext接口的实现类
 
 ```plain
 new ClassPathXmlApplicationContext() 
 new FileSystemXmlApplicationContext() 
 ```
 
-# 二、IOC容器—Bean管理
+## 二、IOC容器—Bean管理
 
 > Bean管理的两个操作：a）Spring 创建对象 b）Spring注入属性 
 
-## 1.基于XML方式
+### 1.基于XML方式
 
-### 1.1）创建对象
+#### 1.1）创建对象
 
 ```xml
 <!--1 配置User对象创建--> 
 <bean id="user" class="com.atguigu.spring5.User"></bean> 
 ```
 
-### 1.2）注入属性（DI:依赖注入）
+#### 1.2）注入属性（DI:依赖注入）
 
-#### i）set方式
+##### i）set方式
 
 ```java
 //（1）传统方式： 创建类，定义属性和对应的set方法 
@@ -75,7 +75,7 @@ public class Book {
 </bean> 
 ```
 
-#### ii）有参构造函数注入
+##### ii）有参构造函数注入
 
 ```java
 //（1）传统方式：创建类，构建有参函数 
@@ -101,7 +101,7 @@ public class Orders {
 </bean> 
 ```
 
-#### iii） p名称空间注入
+##### iii） p名称空间注入
 
 ```xml
 <!--1、添加p名称空间在配置文件头部--> 
@@ -114,7 +114,7 @@ public class Orders {
 </bean> 
 ```
 
-### 1.3）注入空置和特殊符号
+#### 1.3）注入空置和特殊符号
 
 ```xml
 <bean id="book" class="com.atguigu.spring5.Book"> 
@@ -133,9 +133,9 @@ public class Orders {
 </bean> 
 ```
 
-### 1.4）注入属性—外部Bean
+#### 1.4）注入属性—外部Bean
 
-#### i）创建两个类service和dao类
+##### i）创建两个类service和dao类
 
 ```java
 public class UserService {//service类 
@@ -157,7 +157,7 @@ public class UserDaoImpl implements UserDao {//dao类
 } 
 ```
 
-#### ii） 在spring配置文件中进行配置
+##### ii） 在spring配置文件中进行配置
 
 ```xml
 <!--1 service和dao对象创建--> 
@@ -171,9 +171,9 @@ public class UserDaoImpl implements UserDao {//dao类
 <bean id="userDaoImpl" class="com.atguigu.spring5.dao.UserDaoImpl"></bean> 
 ```
 
-### **1.5）基于XML方式注入内部bean和级联赋值**
+#### **1.5）基于XML方式注入内部bean和级联赋值**
 
-#### i） 注入属性-内部bean
+##### i） 注入属性-内部bean
 
 > 1.一对多关系：部门和员工，一个部门有多个员工，一个员工属于一个部门（部门是一，员工是多） 
 > 2.在实体类之间表示一对多关系，员工表示所属部门，使用对象类型属性进行表示 
@@ -226,7 +226,7 @@ public class Emp {
 </bean> 
 
 ```
-#### ii) 注入属性-级联赋值 
+##### ii) 注入属性-级联赋值 
 
 ```xml
 <!--方式一：级联赋值--> 
@@ -267,7 +267,7 @@ public Dept getDept() {
 </bean> 
 ```
 
-### 1.6) **IOC 操作 Bean 管理——xml 注入集合属性**
+#### 1.6) **IOC 操作 Bean 管理——xml 注入集合属性**
 
 > 1、注入数组类型属性 2、注入 List 集合类型属性 3、注入 Map 集合类型属性 
 
@@ -334,7 +334,7 @@ public class Stu {
 </bean> 
 ```
 
-### 1.7) **在集合里面设置对象类型值**
+#### 1.7) **在集合里面设置对象类型值**
 
 ```java
 //学生所学多门课程 
@@ -390,9 +390,9 @@ public class Stu {
 </bean> 
 ```
 
-## 2.、 IOC容器-Bean管理——基于XML（续集）
+### 2.、 IOC容器-Bean管理——基于XML（续集）
 
-### 2.1. **IOC 操作 Bean 管理（FactoryBean）**
+#### 2.1. **IOC 操作 Bean 管理（FactoryBean）**
 
 > 1、Spring 有两种类型 bean，一种普通 bean，另外一种工厂 bean（FactoryBean） 
 >
@@ -432,7 +432,7 @@ public void test3() {
 } 
 ```
 
-### **2.2.IOC 操作 Bean 管理（bean 作用域）**
+#### **2.2.IOC 操作 Bean 管理（bean 作用域）**
 
 在 Spring 里面，默认情况下，bean 是单实例对象，下面进行作用域设置： 
 
@@ -455,7 +455,7 @@ public void test3() {
 
 ---
 
-### 2.3. **IOC 操作 Bean 管理（bean 生命周期）**
+#### 2.3. **IOC 操作 Bean 管理（bean 生命周期）**
 
 > 1.生命周期：从对象创建到对象销毁的过程 
 > 2.bean生命周期 
@@ -553,7 +553,7 @@ public void testBean3() {
 
 ---
 
-### 2.4. **IOC 操作 Bean 管理(外部属性文件)**
+#### 2.4. **IOC 操作 Bean 管理(外部属性文件)**
 
 > 方式一：直接配置数据库信息    ： 
 > （1）配置Druid（德鲁伊）连接池 （2）引入Druid（德鲁伊）连接池依赖 jar 包 
@@ -608,15 +608,15 @@ prop.password=root
 </beans> 
 ```
 
-## 3. IOC 操作 Bean 管理( 基于注解方式 )
+### 3. IOC 操作 Bean 管理( 基于注解方式 )
 
-### 3.1.什么是注解
+#### 3.1.什么是注解
 
 1. 注解是代码的特殊标记，格式：@注解名称（属性名称=属性值，属性名称=属性值。。。） 
 2. 使用注解，注解作用在类上面，方法上面，属性上面 
 3. 使用注解的目的：简化xml配置 
    
-   ### 3.2.Spring针对Bean管理中创建对象提供注解
+   #### 3.2.Spring针对Bean管理中创建对象提供注解
 
 下面四个注解功能是一样的，都可以用来创建bean实例 
 
@@ -625,7 +625,7 @@ prop.password=root
 3. @Controller 
 4. @Repository 
    
-   ### 3.3.基于注解方式实现对象创建
+   #### 3.3.基于注解方式实现对象创建
 
 第一步 引入依赖（引入spring-aop jar包） 
 
@@ -657,7 +657,7 @@ public class UserService {
 } 
 ```
 
-### 3.4.开启组件扫描配置
+#### 3.4.开启组件扫描配置
 
 ```xml
 <!--示例 1 
@@ -680,7 +680,7 @@ expression="org.springframework.stereotype.Controller"/><!--表示Controller注�
 </context:component-scan> 
 ```
 
-### 3.5. **基于注解方式实现属性注入**
+#### 3.5. **基于注解方式实现属性注入**
 
 1）@Autowired：根据属性类型进行自动装配 
 
@@ -748,7 +748,7 @@ private UserDao userDao;
 private String name 
 ```
 
-### 3.6.完全注解开发
+#### 3.6.完全注解开发
 
 1）创建配置类，替代 xml 配置文件 
 

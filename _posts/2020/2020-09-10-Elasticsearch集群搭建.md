@@ -7,16 +7,16 @@ keywords: elasticsearch
 excerpt: Elasticsearch集群搭建Kibana安装 
 --- 
 
-# Elasticsearch集群搭建Kibana安装 
-## 一、环境要求
+## Elasticsearch集群搭建Kibana安装 
+### 一、环境要求
 > centos 7 64位
 
 > Jdk 1.8+
 
-## 二、资源配置
+### 二、资源配置
 > 用于安装ES的集群，都要进行资源配置，确保有足够资原启动ES。
 
-### 1、修改（没有做新增）`/etc/security/limits.conf`
+#### 1、修改（没有做新增）`/etc/security/limits.conf`
 ```text
 * soft nofile 65536
 * hard nofile 131072
@@ -24,12 +24,12 @@ excerpt: Elasticsearch集群搭建Kibana安装
 * hard nproc 131072
 ```
 
-### 2、修改（没有做新增）`/etc/sysctl.conf`
+#### 2、修改（没有做新增）`/etc/sysctl.conf`
 ```properties
 vm.max_map_count=262144
 ```
 > 然后运行 `sysctl -p`  命令使得修改生效
-### 3.设置用户资源参数
+#### 3.设置用户资源参数
 
 > 设置elk用户参数（在该文件下面添加一行）`/etc/security/limits.d/20-nproc.conf`
 
@@ -39,7 +39,7 @@ elasticsearch    soft    nproc     65536
 
 
 
-## 三、配置文件详解
+### 三、配置文件详解
 
 > 解压tar包，并进行配置
 
@@ -52,7 +52,7 @@ vim ./config/elasticsearch.yml
 > 然后就可以对配置文件进行修改了
 
 ```yaml
-# 这里指定的是集群名称
+## 这里指定的是集群名称
 cluster.name: my-cluster
 #节点名称
 node.name: node-1
@@ -100,20 +100,20 @@ node.data: true
 ```
 
 
-## 四、集群启动
+### 四、集群启动
 
 > 上述步骤在集群的每一台机器上都进行配置之后，接下来就是启动运行集群了。
 
 > Elasticsearch集群启动无法使用root用户启动，需要新建一个用户来启动elasticsearch。
 
-### 1.创建新用户
+#### 1.创建新用户
 ```text
 useradd elasticsearch         #创建用户elk
 groupadd elasticsearch        #创建组elk
 useradd elasticsearch -g elasticsearch  #将用户添加到组
 ```
 
-### 2.创建数据目录和赋权
+#### 2.创建数据目录和赋权
 ```text
 mkdir -pv /app/data/elasticsearch/{data,logs} # 创建数据和日志目录(上述配置文件中配置的)
 ```
@@ -124,7 +124,7 @@ chown -R elasticsearch:elasticsearch /app/data/elasticsearch/
 chown -R elasticsearch:elasticsearch /app/soft/ elasticsearch-7.2.0/
 ```
 
-### 3.启动集群
+#### 3.启动集群
 
 > 进入elastic search目录，使用nohup一台机器一台机器的启动elastic search。
 
@@ -135,7 +135,7 @@ nohup ./bin/elasticsearch &
 ```
 
 
-### 4.验证是否启动成功
+#### 4.验证是否启动成功
 
 > 进入其中一台机器，访问：
 
@@ -151,7 +151,7 @@ curl localhost:9200/_cat/health?pretty
 ```
 
 
-## 五、集群动态添加节点
+### 五、集群动态添加节点
 
 > 配置文件中有两个配置：
 
@@ -177,7 +177,7 @@ cluster.initial_master_nodes:
 
 > 在向集群添加新的符合主节点条件的节点时不再需要任何特殊的仪式，只需配置新节点，让它们可以发现已有集群，并启动它们。当有新节点加入时，集群将会自动地调整选举配置。只要你没有同时停止一半或更多符合主节点条件的节点，即使移除节点也是安全的。如果你需要停止一半或更多符合主节点条件的节点，或者你有更复杂的伸缩和编排需求，可以使用 API 直接调整选举配置。
 
-## 六、集群节点说明及部署建议
+### 六、集群节点说明及部署建议
 
 > 默认情况下，elasticsearch集群中每个节点都有成为主节点的资格，也都存储数据，还可以提供查询服务。
 
@@ -199,9 +199,9 @@ cluster.initial_master_nodes:
 
 > 所以在集群中建议再设置一批client节点`【node.master: false  node.data: false】`，这些节点只负责处理用户请求，实现请求转发，负载均衡等功能。
 
-# Kibana 搭建
+## Kibana 搭建
 
-## 一、配置
+### 一、配置
 
 ```text
 tar -zxvf kibana-7.2.0-linux-x86_64.tar.gz
@@ -222,7 +222,7 @@ kibana.index: ".kibana"
 ```
 
 
-## 二、启动
+### 二、启动
 
 > 与ES一样，`kibana`无法用root用户启动
 
