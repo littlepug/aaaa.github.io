@@ -20,13 +20,13 @@ github_url: https://github.com/littlepug
 url: https://littlepug.github.io
 enforce_ssl: littlepug.com
 
-## Gem
-plugins:
-  - jekyll-paginate
-  - jekyll-geo-pattern
-  - rouge
-  - kramdown
-  - jekyll-github-metadata
+### Gem
+#plugins:
+#  - jekyll-paginate
+#  - jekyll-geo-pattern
+#  - rouge
+#  - kramdown
+#  - jekyll-github-metadata
 
 # Build settings
 markdown: kramdown
@@ -103,10 +103,10 @@ navs:
 # labels. my blog key words
 labels:
 
-  -
-    href: /payment.html
-    label: Pay     
-    target: _self
+#  -
+#    href: /payment.html
+#    label: Pay
+#    target: _self
 
   -
     href: /elasticsearch.html
@@ -117,31 +117,31 @@ labels:
     label: BigData
     target: _self
 
-
-  -
-    href: /fastdfs.html
-    label: FastDFS
-    target: _blank
-
-  -
-    href: /mongodb.html
-    label: MongoDB
-    target: _blank
-
-  -
-    href: /docker.html
-    label: Docker
-    target: _blank
-
-  -
-    href: /open-source.html
-    label: Code  
-    target: _blank
-
-  -
-    href: /gitchat.html
-    label: Chat
-    target: _blank
+#
+#  -
+#    href: /fastdfs.html
+#    label: FastDFS
+#    target: _blank
+#
+#  -
+#    href: /mongodb.html
+#    label: MongoDB
+#    target: _blank
+#
+#  -
+#    href: /docker.html
+#    label: Docker
+#    target: _blank
+#
+#  -
+#    href: /open-source.html
+#    label: Code
+#    target: _blank
+#
+#  -
+#    href: /gitchat.html
+#    label: Chat
+#    target: _blank
 
 
 # selected articles
