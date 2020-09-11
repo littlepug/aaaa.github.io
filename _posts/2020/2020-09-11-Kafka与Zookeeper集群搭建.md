@@ -67,6 +67,7 @@ echo “132” > /app/data/zookeeper/data/myid
 
 > `bin/zkServer.sh start`
 
+![图片](/assets/images/2020/kafka/kafka01.png)
 
 > 启动`jps`命令查看
 
