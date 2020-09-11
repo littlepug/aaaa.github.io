@@ -67,6 +67,16 @@ navs:
     href: /
     label: Home
 
+
+  - href: /elasticsearch.html
+    label: Elasticsearch
+    target: _self
+
+  - href: /bigdata.html
+    label: BigData
+    target: _self
+
+
   -
     href: /spring-boot.html
     label: Spring Boot
@@ -102,6 +112,11 @@ labels:
     href: /elasticsearch.html
     label: Elasticsearch
     target: _self
+
+  - href: /bigdata.html
+    label: BigData
+    target: _self
+
 
   -
     href: /fastdfs.html
